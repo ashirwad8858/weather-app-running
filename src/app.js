@@ -38,6 +38,11 @@ app.get('/about',(req,res)=>{
 })
 
 app.get('/weather',(req,res)=>{
+
+    if(!req.query.location){
+        return res.send({error:'location not found'})
+    }
+
     res.send({
         forcast:'It is snowing',
         locaton:'Ghazipur'
